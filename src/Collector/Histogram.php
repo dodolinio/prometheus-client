@@ -12,7 +12,7 @@ class Histogram implements CollectorInterface
 {
     const TYPE = 'histogram';
 
-    const DEFAULT_BUCKETS = [0.005, 0.01, 0.025, 0.05, 0.075, 0.1, 0.25, 0.5, 0.75, 1.0, 2.5, 5.0, 7.5, 10.0];
+    //const DEFAULT_BUCKETS = [0.005, 0.01, 0.025, 0.05, 0.075, 0.1, 0.25, 0.5, 0.75, 1.0, 2.5, 5.0, 7.5, 10.0];
 
     const COUNT_POSTFIX = '_count';
     const SUM_POSTFIX = '_sum';
@@ -60,7 +60,8 @@ class Histogram implements CollectorInterface
         $this->labelNames = $labelNames;
 
         if (!is_array($buckets)) {
-            $buckets = self::DEFAULT_BUCKETS;
+            //$buckets = self::DEFAULT_BUCKETS;
+            $buckets = [0.1, 1, 2, 5, 10, 25, 50, 120];
         }
 
         for ($i = 1; $i < count($buckets); $i++) {
